@@ -1,12 +1,10 @@
 import searchIcon from './search.svg';
 import './App.css';
-import Main from './Main';
+import Main from './Main.jsx';
 
 
 
 function App() {
-
-  
 
   return (
     <>

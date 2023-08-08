@@ -15,7 +15,7 @@ const Main = () => {
   
 
   useEffect(() => {
-    fetchMovies('spiderman');
+    fetchMovies();
   }, []);
 
 
@@ -38,13 +38,14 @@ const Main = () => {
       <h1>Kinyenje Flix</h1>
 
       <div className="search">
-        <input type="text" 
+        <input 
+            type="text" 
             placeholder='Search Movie'
             value={searchValue}
-            onChange={(e) => {return setSearchValue(e.target.value)}}
+            onChange={(e) => setSearchValue(e.target.value)}
              />
         <img src={searchIcon}
-            onClick={ () => {fetchMovies(searchValue)}}
+            onClick={ () => fetchMovies(searchValue)}
             alt="Search"
          />
                    
@@ -52,14 +53,14 @@ const Main = () => {
 
       {movies?.length > 0 ? (
         <div className='container'>
-          {movies.map((movie) => {         
+          {movies.map((movie) => (         
               <MovieCard
                 Year={movie.Year}
                 Title = {movie.Title}
                 Poster = {movie.Poster}
                 Type = {movie.Type}
                 />      
-          })}
+          ))}
          </div>
         ) : (
           <div className='empty'>
