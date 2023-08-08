@@ -14,9 +14,16 @@ const Main = () => {
 
   
 
-  // useEffect(() => {
-  //   fetchMovies();
-  // }, []);
+  useEffect(() => {
+    randomMovies();
+  },[]);
+
+  const randomMovies = async () => {
+    const response = await fetch('http://www.omdbapi.com/?apikey=da28ca55&s=love&type=movie');
+    const data = await response.json();
+    setMovies(data.Search);
+    console.log(movies)
+  }
 
 
  const fetchMovies = async (title) => {
@@ -26,13 +33,7 @@ const Main = () => {
     setMovies(data.Search);
     console.log(movies)
   }
-  const movieClip = {
-    "Title": "Batman Begins",
-    "Year": "2005",
-    "imdbID": "tt0372784",
-    "Type": "movie",
-    "Poster": "https://m.media-amazon.com/images/M/MV5BOTY4YjI2N2MtYmFlMC00ZjcyLTg3YjEtMDQyM2ZjYzQ5YWFkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
-  }
+ 
 
   return (
     <div className="app">
@@ -70,12 +71,7 @@ const Main = () => {
         )
       }
 
-      <MovieCard
-       Year={movieClip.Year}
-       Title = {movieClip.Title}
-       Poster = {movieClip.Poster}
-       Type = {movieClip.Type}
-        />
+    
 
     </div>
   )
