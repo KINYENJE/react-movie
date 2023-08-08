@@ -5,7 +5,7 @@ import MovieCard from './MovieCard';
 
 
 
-const Api_Url = 'http://www.omdbapi.com/?apikey=da28ca55'
+const Api_Url = 'http://www.omdbapi.com/?apikey=da28ca55';
 
 const Main = () => {
 
@@ -14,12 +14,13 @@ const Main = () => {
 
   
 
-  useEffect(() => {
-    fetchMovies();
-  }, []);
+  // useEffect(() => {
+  //   fetchMovies();
+  // }, []);
 
 
  const fetchMovies = async (title) => {
+  console.log('Fetching movies with title:', title);
     const response = await fetch(`${Api_Url}&s=${title}`);
     const data = await response.json();
     setMovies(data.Search);
@@ -34,7 +35,7 @@ const Main = () => {
   }
 
   return (
-    <div className="App">
+    <div className="app">
       <h1>Kinyenje Flix</h1>
 
       <div className="search">
